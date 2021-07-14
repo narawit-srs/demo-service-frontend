@@ -25,13 +25,7 @@ pipeline {
         }
 
         stage('Build App With Maven') {
-            agent {
-                 docker {
-                    image "node:lts-alpine"
-                        args '-u root'
-                        reuseNode true
-                }
-            }
+            agent any
             steps {
                 sh '''
                     npm install -g @angular/cli
