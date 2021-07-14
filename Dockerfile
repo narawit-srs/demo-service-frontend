@@ -7,7 +7,7 @@ FROM nginx:1.13.0-alpine
 COPY default.conf /etc/nginx/conf.d/default.conf
 
 #### copy artifact build from the 'build environment'
-COPY dist/ktb-eos-whitelist /usr/share/nginx/html
+COPY dist/angular-tour-of-heroes /usr/share/nginx/html
 
 EXPOSE 8080
 

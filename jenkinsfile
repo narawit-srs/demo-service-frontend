@@ -36,6 +36,7 @@ pipeline {
                     npm install -g @angular/cli
                     npm install
                     ng build --prod
+                    ls -al dist
                 ''' 
             }
         }
