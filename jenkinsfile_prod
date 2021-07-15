@@ -99,6 +99,7 @@ pipeline {
         stage('Cleanup') {
             steps {
                 script {
+                    deleteDir()
                     // sh "docker rmi narawitrt" + "/" + "demo-service" + ":"+"${env.version_tag}" 
                     echo "cleanup"
                 }      
