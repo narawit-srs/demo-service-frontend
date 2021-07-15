@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        env = "dev"
+        env = "prod"
         registryCredential = "registryCredential"
         version_tag = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
 
@@ -37,8 +37,6 @@ pipeline {
                     ng build
                     ls -al dist
                 ''' 
-                // nohup ng serve 2>&1 >> /var/log/ng.log &
-                // npx cypress run
             }
         }
 
