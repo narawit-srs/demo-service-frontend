@@ -37,6 +37,7 @@ pipeline {
         sh '''
                     npm install -g @angular/cli
                     npm install
+                    ng test --watch=false
                     ng build
                     ls -al dist
                 '''
