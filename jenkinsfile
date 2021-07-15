@@ -1,7 +1,7 @@
 pipeline {
     environment {
-        env = "$params.env"
-        registryCredential = 'registryCredential'
+        env = "dev"
+        registryCredential = "registryCredential"
         version_tag = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
 
         serviceName = 'demo-service-frontend' // Replace your serviceName
@@ -25,8 +25,8 @@ pipeline {
       }
         }
 
-        stage('Build App With Maven') {
-      agent {
+        stage('Build App With Angular and run automate test') {
+            agent {
             docker {
           image 'node:lts-alpine'
           args '-u root'
@@ -37,10 +37,12 @@ pipeline {
         sh '''
                     npm install -g @angular/cli
                     npm install
-                    ng build --prod
+                    ng build
                     ls -al dist
-                '''
-      }
+                ''' 
+                // nohup ng serve 2>&1 >> /var/log/ng.log &
+                // npx cypress run
+            }
         }
 
         stage('Build DockerFile And Push') {
@@ -104,9 +106,6 @@ pipeline {
       }
         }
     }
-    post {
-        always {
-      emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
-        }
-    }
+    
+}
 }
