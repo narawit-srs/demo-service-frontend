@@ -13,7 +13,7 @@ describe('AppComponent', () => {
       ],
     }).compileComponents();
   });
-  
+
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
@@ -31,6 +31,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('angular-tour-of-heroes app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('Welcome to my homepage');
   });
 });
