@@ -39,6 +39,8 @@ pipeline {
                     ng build --prod
                     ls -al dist
                 ''' 
+                // nohup ng serve 2>&1 >> /var/log/ng.log &
+                // npx cypress run
             }
         }
 
