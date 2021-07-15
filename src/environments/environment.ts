@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   apiEmployee: 'http://172.16.16.151:8080/employee',
-  apiCompany: 'http://172.16.16.150:8080/company'
+  apiCompany: 'http://172.16.16.150:8080/company',
+  envWelcome: "DevelopmentZone"
 };
 
 /*

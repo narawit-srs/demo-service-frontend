@@ -36,11 +36,9 @@ pipeline {
                 sh '''
                     npm install -g @angular/cli
                     npm install
-                    ng build --prod
+                    ng build
                     ls -al dist
                 ''' 
-                // nohup ng serve 2>&1 >> /var/log/ng.log &
-                // npx cypress run
             }
         }
 

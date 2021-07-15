@@ -13,5 +13,6 @@ export class AppComponent {
   title = 'angular-tour-of-heroes';
   apiEmployee = environment.apiEmployee;
   apiCompany = environment.apiCompany;
+  envWelcome = environment.envWelcome;
 
 }
