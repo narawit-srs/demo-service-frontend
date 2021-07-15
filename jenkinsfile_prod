@@ -35,7 +35,8 @@ pipeline {
             steps {
                 sh '''
                     npm install -g @angular/cli
-                    ng build
+                    npm install
+                    ng build --prod
                     ls -al dist
                 ''' 
             }
