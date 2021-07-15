@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        env = "$params.env"
+        env = "dev  "
         registryCredential = "registryCredential"
         version_tag = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
 
@@ -24,7 +24,7 @@ pipeline {
             }
         }
 
-        stage('Build App With Maven') {
+        stage('Build App With Angular and run automate test') {
             agent {
             docker {
                         image "node:lts-alpine"
@@ -38,6 +38,8 @@ pipeline {
                     npm install
                     ng build --prod
                     ls -al dist
+                    ng serve
+                    npx cypress run
                 ''' 
             }
         }
