@@ -3,9 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  apiEmployee: 'http://172.16.16.153:8080/',
-  apiCompany: 'http://172.16.16.154:8080/'
+  production: true,
+  apiEmployee: 'http://172.16.16.155:8080/employee',
+  apiCompany: 'http://172.16.16.154:8080/company'
 };
 
 /*
